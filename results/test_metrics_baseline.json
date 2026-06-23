@@ -1,0 +1,8 @@
+{
+  "bleu": 1.0,
+  "rouge1": 8.16,
+  "rouge2": 0.73,
+  "rougeL": 7.62,
+  "exact_match": 0.0,
+  "n_test_examples": 1000
+}
