@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Model artifacts (large, don't commit -- push to HF Hub instead)
+codet5-comment-gen/
+codet5-comment-gen-final/
+*.bin
+*.safetensors
+*.pt
+*.ckpt
+
+# Local environment / secrets
+.env
+*.token
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Kaggle / Jupyter
+.kaggle/
