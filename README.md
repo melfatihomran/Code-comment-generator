@@ -31,7 +31,7 @@ Run it locally: see [Running the demo app](#running-the-demo-app) below.
 
 | Model                              | BLEU  | ROUGE-1 | ROUGE-2 | ROUGE-L | Exact Match |
 |-------------------------------------|-------|---------|---------|---------|-------------|
-| `codet5-small` (pretrained, no FT)  | TBD   | TBD     | TBD     | TBD     | TBD         |
+| `codet5-small` (pretrained, no FT)  | 1.00   | 8.16     | 0.73     | 7.62     | 0.00         |
 | `codet5-small` (fine-tuned, ours)   | 19.65 | 41.11   | 23.41   | 38.83   | 5.60%       |
 ## Dataset
 
@@ -99,7 +99,7 @@ pipeline needs to change.
 pip install -r requirements.txt
 
 # Point at your fine-tuned model on the Hub, or a local saved checkpoint
-export export MODEL_NAME="melfatihomran/codet5-small-code-comment-gen"
+export MODEL_NAME="melfatihomran/codet5-small-code-comment-gen"
 # or: export MODEL_NAME="./codet5-comment-gen-final"
 
 uvicorn app.main:app --reload --port 8000
