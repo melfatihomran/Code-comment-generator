@@ -26,19 +26,13 @@ through a small **FastAPI** app with an editor-styled demo UI.
 
 Run it locally: see [Running the demo app](#running-the-demo-app) below.
 
+
 ## Results
 
-> ⚠️ Fill this table in with the numbers from `results/test_metrics_baseline.json`
-> and `results/test_metrics_finetuned.json` after you run the notebook on
-> Kaggle. Numbers below are placeholders, not real measurements.
-
-| Model                              | BLEU | ROUGE-1 | ROUGE-2 | ROUGE-L | Exact Match |
-|-------------------------------------|------|---------|---------|---------|-------------|
-| `codet5-small` (pretrained, no FT)  | TBD  | TBD     | TBD     | TBD     | TBD         |
-| `codet5-small` (fine-tuned, ours)   | TBD  | TBD     | TBD     | TBD     | TBD         |
-
-Qualitative examples: see `results/qualitative_samples.md` after running the notebook.
-
+| Model                              | BLEU  | ROUGE-1 | ROUGE-2 | ROUGE-L | Exact Match |
+|-------------------------------------|-------|---------|---------|---------|-------------|
+| `codet5-small` (pretrained, no FT)  | TBD   | TBD     | TBD     | TBD     | TBD         |
+| `codet5-small` (fine-tuned, ours)   | 19.65 | 41.11   | 23.41   | 38.83   | 5.60%       |
 ## Dataset
 
 [`sentence-transformers/codesearchnet`](https://huggingface.co/datasets/sentence-transformers/codesearchnet)
@@ -105,7 +99,7 @@ pipeline needs to change.
 pip install -r requirements.txt
 
 # Point at your fine-tuned model on the Hub, or a local saved checkpoint
-export MODEL_NAME="your-username/codet5-small-comment-generator"
+export export MODEL_NAME="melfatihomran/codet5-small-code-comment-gen"
 # or: export MODEL_NAME="./codet5-comment-gen-final"
 
 uvicorn app.main:app --reload --port 8000
@@ -121,9 +115,7 @@ curl -X POST http://localhost:8000/generate \
   -d '{"code": "def add(a, b):\n    return a + b", "num_beams": 4}'
 ```
 
-If `MODEL_NAME` is unset, the app falls back to the base
-`Salesforce/codet5-small` checkpoint so the API surface is runnable without
-a fine-tuned model on hand.
+
 
 ## Possible extensions
 
@@ -132,6 +124,4 @@ a fine-tuned model on hand.
 - **GitHub bot**: wrap `app/main.py`'s `/generate` endpoint in a GitHub Action that comments on PRs missing docstrings
 - **Language-conditioned generation**: the raw CodeSearchNet has per-language splits; tagging examples by language and adding a task-prefix could improve quality on a specific language
 
-## License
 
-MIT — see `LICENSE` (add one if not already present in the repo).
